@@ -1,0 +1,284 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: 'Arial', sans-serif;
+    background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+    min-height: 100vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    overflow-x: hidden;
+    overflow-y: auto;
+}
+
+.container {
+    text-align: center;
+    padding: 2rem;
+    width: 100%;
+}
+
+.banner {
+    font-size: 3rem;
+    color: white;
+    margin-bottom: 3rem;
+    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.3);
+    animation: float 3s ease-in-out infinite;
+}
+
+@keyframes float {
+    0%, 100% {
+        transform: translateY(0px);
+    }
+    50% {
+        transform: translateY(-10px);
+    }
+}
+
+.buttons-container {
+    display: flex;
+    gap: 2rem;
+    justify-content: center;
+    align-items: center;
+    margin-top: 2rem;
+    position: relative;
+    height: 200px;
+}
+
+button {
+    padding: 1.5rem 3rem;
+    font-size: 1.5rem;
+    border: none;
+    border-radius: 15px;
+    cursor: pointer;
+    font-weight: bold;
+    transition: transform 0.2s, box-shadow 0.2s;
+}
+
+.yes-btn {
+    background: linear-gradient(135deg, #f093fb 0%, #f5576c 100%);
+    color: white;
+    box-shadow: 0 8px 15px rgba(245, 87, 108, 0.4);
+    padding: 2rem 4rem;
+    font-size: 2rem;
+}
+
+.yes-btn:hover {
+    transform: scale(1.15);
+    box-shadow: 0 12px 20px rgba(245, 87, 108, 0.6);
+}
+
+.yes-btn:active {
+    transform: scale(1.05);
+}
+
+.no-btn {
+    background: #e74c3c;
+    color: white;
+    box-shadow: 0 8px 15px rgba(231, 76, 60, 0.4);
+    position: absolute;
+    transition: opacity 0.1s ease;
+}
+
+.bear {
+    position: fixed;
+    font-size: 4rem;
+    opacity: 0;
+    pointer-events: none;
+    z-index: 999;
+    transition: opacity 0.3s ease;
+}
+
+.celebration {
+    margin-top: 2rem;
+    margin-bottom: 3rem;
+    max-width: 800px;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+.celebration.hidden {
+    display: none;
+}
+
+.celebration h2 {
+    font-size: 2.5rem;
+    color: white;
+    margin-bottom: 1rem;
+    animation: pulse 1s ease-in-out infinite;
+}
+
+.hearts {
+    font-size: 2rem;
+    animation: bounce 1s ease-in-out infinite;
+    margin-bottom: 2rem;
+}
+
+.dinner-reveal {
+    background: rgba(255, 255, 255, 0.95);
+    border-radius: 20px;
+    padding: 2rem;
+    margin-top: 2rem;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.3);
+    animation: slideUp 0.8s ease-out;
+}
+
+.dinner-reveal h3 {
+    color: #764ba2;
+    font-size: 1.8rem;
+    margin-bottom: 1.5rem;
+    text-align: center;
+}
+
+.reservation-time {
+    text-align: center;
+    margin-bottom: 2rem;
+    padding: 1.5rem;
+    background: linear-gradient(135deg, #f093fb 0%, #f5576c 100%);
+    border-radius: 15px;
+    color: white;
+}
+
+.reservation-time p {
+    margin: 0.5rem 0;
+    font-size: 1.2rem;
+}
+
+.reservation-time .time {
+    font-size: 1.8rem;
+    font-weight: bold;
+}
+
+.reservation-time .restaurant {
+    font-size: 2rem;
+    font-weight: bold;
+    letter-spacing: 2px;
+}
+
+.menu {
+    text-align: left;
+}
+
+.menu h4 {
+    color: #764ba2;
+    font-size: 1.5rem;
+    text-align: center;
+    margin-bottom: 1.5rem;
+    padding-bottom: 1rem;
+    border-bottom: 2px solid #f5576c;
+}
+
+.course {
+    margin-bottom: 1.5rem;
+    padding: 1rem;
+    background: rgba(245, 87, 108, 0.05);
+    border-radius: 10px;
+    border-left: 4px solid #f5576c;
+}
+
+.course-name {
+    font-weight: bold;
+    color: #764ba2;
+    font-size: 1.2rem;
+    margin-bottom: 0.5rem;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+}
+
+.course-desc {
+    color: #555;
+    line-height: 1.6;
+    margin: 0.5rem 0;
+}
+
+.course-or {
+    text-align: center;
+    color: #764ba2;
+    font-weight: bold;
+    margin: 0.5rem 0;
+}
+
+@keyframes slideUp {
+    from {
+        opacity: 0;
+        transform: translateY(30px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+@keyframes pulse {
+    0%, 100% {
+        transform: scale(1);
+    }
+    50% {
+        transform: scale(1.05);
+    }
+}
+
+@keyframes bounce {
+    0%, 100% {
+        transform: translateY(0);
+    }
+    50% {
+        transform: translateY(-10px);
+    }
+}
+
+@media (max-width: 768px) {
+    .banner {
+        font-size: 2rem;
+    }
+
+    button {
+        padding: 1rem 2rem;
+        font-size: 1.2rem;
+    }
+
+    .yes-btn {
+        padding: 1.5rem 3rem;
+        font-size: 1.5rem;
+    }
+
+    .celebration h2 {
+        font-size: 1.8rem;
+    }
+
+    .dinner-reveal {
+        padding: 1rem;
+        margin-top: 1rem;
+    }
+
+    .dinner-reveal h3 {
+        font-size: 1.4rem;
+    }
+
+    .reservation-time {
+        padding: 1rem;
+    }
+
+    .reservation-time .time {
+        font-size: 1.5rem;
+    }
+
+    .reservation-time .restaurant {
+        font-size: 1.6rem;
+    }
+
+    .menu h4 {
+        font-size: 1.2rem;
+    }
+
+    .course-name {
+        font-size: 1rem;
+    }
+
+    .course-desc {
+        font-size: 0.9rem;
+    }
+}
