@@ -7,11 +7,7 @@ const buttonsContainer = document.querySelector('.buttons-container');
 let bearIsChasing = false;
 let yesClicked = false;
 let buttonPosition = { x: 0, y: 0 };
-
-// Initialize button position
-const initialRect = noBtn.getBoundingClientRect();
-buttonPosition.x = initialRect.left;
-buttonPosition.y = initialRect.top;
+let buttonInitialized = false;
 
 // Handle mouse movement near the No button
 document.addEventListener('mousemove', (e) => {
@@ -55,6 +51,15 @@ document.addEventListener('mousemove', (e) => {
 });
 
 function runAwayFromMouse(mouseX, mouseY, btnX, btnY) {
+    // Initialize button position on first run
+    if (!buttonInitialized) {
+        const rect = noBtn.getBoundingClientRect();
+        buttonPosition.x = rect.left;
+        buttonPosition.y = rect.top;
+        noBtn.style.position = 'fixed';
+        buttonInitialized = true;
+    }
+
     // Calculate direction away from mouse
     const dx = btnX - mouseX;
     const dy = btnY - mouseY;
@@ -88,7 +93,6 @@ function runAwayFromMouse(mouseX, mouseY, btnX, btnY) {
     }
 
     // Apply position to button
-    noBtn.style.position = 'fixed';
     noBtn.style.left = buttonPosition.x + 'px';
     noBtn.style.top = buttonPosition.y + 'px';
 
@@ -112,6 +116,10 @@ noBtn.addEventListener('click', (e) => {
 });
 
 function teleportButton() {
+    // Hide the bear
+    bearIsChasing = false;
+    bear.style.opacity = '0';
+
     // Random position on screen
     const maxX = window.innerWidth - 200;
     const maxY = window.innerHeight - 100;
